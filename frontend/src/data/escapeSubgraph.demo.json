@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "source": "Synthetic public demo graph for FlyRL",
+    "sourceKind": "synthetic-public-demo",
+    "nodeCount": 6,
+    "edgeCount": 8,
+    "candidateCellTypes": ["LC4", "LPLC2", "DNp01", "GF"],
+    "edgeSelection": "Small hand-authored placeholder graph used so the public repository builds without redistributing derived FlyWire data.",
+    "realDataStatement": "Public build uses a synthetic placeholder graph. Regenerate the FlyWire/Codex-derived graph locally from the original sources for research runs.",
+    "simulationAssumptionStatement": "Weights drive a simplified computational activity model and are not biological firing strengths."
+  },
+  "nodes": [
+    {
+      "id": "demo-lc4-left",
+      "cellType": "LC4",
+      "hemibrainType": "LC4",
+      "side": "left",
+      "neurotransmitter": "acetylcholine"
+    },
+    {
+      "id": "demo-lc4-right",
+      "cellType": "LC4",
+      "hemibrainType": "LC4",
+      "side": "right",
+      "neurotransmitter": "acetylcholine"
+    },
+    {
+      "id": "demo-lplc2-left",
+      "cellType": "LPLC2",
+      "hemibrainType": "LPLC2",
+      "side": "left",
+      "neurotransmitter": "acetylcholine"
+    },
+    {
+      "id": "demo-lplc2-right",
+      "cellType": "LPLC2",
+      "hemibrainType": "LPLC2",
+      "side": "right",
+      "neurotransmitter": "acetylcholine"
+    },
+    {
+      "id": "demo-dnp01-left",
+      "cellType": "DNp01",
+      "hemibrainType": "DNp01",
+      "side": "left",
+      "neurotransmitter": "acetylcholine"
+    },
+    {
+      "id": "demo-gf-right",
+      "cellType": "DNp01",
+      "hemibrainType": "GF",
+      "side": "right",
+      "neurotransmitter": "acetylcholine"
+    }
+  ],
+  "edges": [
+    { "source": 0, "target": 4, "synCount": 8, "weight": 0.88 },
+    { "source": 1, "target": 5, "synCount": 8, "weight": 0.88 },
+    { "source": 2, "target": 4, "synCount": 10, "weight": 1 },
+    { "source": 3, "target": 5, "synCount": 10, "weight": 1 },
+    { "source": 0, "target": 2, "synCount": 4, "weight": 0.58 },
+    { "source": 1, "target": 3, "synCount": 4, "weight": 0.58 },
+    { "source": 2, "target": 5, "synCount": 5, "weight": 0.66 },
+    { "source": 3, "target": 4, "synCount": 5, "weight": 0.66 }
+  ]
+}
