@@ -19,6 +19,13 @@ function escapeRate(snapshot: GameSnapshot): string {
   return `${Math.round((snapshot.metrics.escapes / total) * 100)}%`;
 }
 
+function barWidth(value: number): string {
+  if (!Number.isFinite(value) || value <= 0) {
+    return "0%";
+  }
+  return `${Math.min(100, Math.max(4, value))}%`;
+}
+
 type MetricPanelProps = {
   snapshot: GameSnapshot;
 };
@@ -83,15 +90,15 @@ export function MetricPanel({ snapshot }: MetricPanelProps) {
           <span>Threat</span>
           <strong>{Math.round(snapshot.agentState.threat)}%</strong>
         </div>
-        <div className="bar-track">
-          <div className="bar-fill threat" style={{ width: `${snapshot.agentState.threat}%` }} />
+        <div className="bar-track threat" aria-hidden="true">
+          <div className="bar-fill threat" style={{ width: barWidth(snapshot.agentState.threat) }} />
         </div>
         <div className="state-row">
           <span>Sensory activity</span>
           <strong>{Math.round(snapshot.agentState.sensoryActivity)}%</strong>
         </div>
-        <div className="bar-track">
-          <div className="bar-fill sensory" style={{ width: `${snapshot.agentState.sensoryActivity}%` }} />
+        <div className="bar-track sensory" aria-hidden="true">
+          <div className="bar-fill sensory" style={{ width: barWidth(snapshot.agentState.sensoryActivity) }} />
         </div>
         <dl className="agent-details">
           <div>

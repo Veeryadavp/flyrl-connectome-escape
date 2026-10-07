@@ -245,10 +245,19 @@ dd {
 
 .bar-track {
   width: 100%;
-  height: 6px;
+  height: 8px;
   margin-top: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   background: #151d23;
   overflow: hidden;
+}
+
+.bar-track.threat {
+  background: rgba(239, 98, 98, 0.14);
+}
+
+.bar-track.sensory {
+  background: rgba(68, 214, 168, 0.14);
 }
 
 .bar-fill {
@@ -259,10 +268,12 @@ dd {
 
 .bar-fill.threat {
   background: #ef6262;
+  box-shadow: 0 0 14px rgba(239, 98, 98, 0.52);
 }
 
 .bar-fill.sensory {
   background: #44d6a8;
+  box-shadow: 0 0 14px rgba(68, 214, 168, 0.52);
 }
 
 .neural-panel {
