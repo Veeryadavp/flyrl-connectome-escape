@@ -85,6 +85,7 @@ describe("connectome agent", () => {
     const result = decideConnectomeAgent(closeThreat, null, createConnectomeMemory());
 
     expect(result.agentState.decision).toBe("EVADE");
+    expect(result.agentState.sensoryActivity).toBeGreaterThan(12);
     expect(result.agentState.sensoryActivity).toBeLessThan(100);
     expect(result.desiredVelocity.x).toBeGreaterThan(0);
   });

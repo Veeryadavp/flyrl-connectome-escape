@@ -47,6 +47,7 @@ export type ConnectomeAgentOutput = {
 const graph = escapeSubgraph as ConnectomeGraph;
 const nodes = graph.nodes;
 const edges = graph.edges;
+const activityGain = graph.metadata.sourceKind === "synthetic-public-demo" ? 2.5 : 1;
 
 const lc4Indexes = nodes.flatMap((node, index) => (node.cellType === "LC4" ? [index] : []));
 const lplc2Indexes = nodes.flatMap((node, index) => (node.cellType === "LPLC2" ? [index] : []));
@@ -117,8 +118,8 @@ export function decideConnectomeAgent(
   const leftActivity = average(leftIndexes, activations);
   const rightActivity = average(rightIndexes, activations);
   const currentInputGate = 0.35 + inputDrive * 0.65;
-  const sensoryActivity = activityToPercent(visualActivity * currentInputGate);
-  const motorActivity = activityToPercent(actionActivity * currentInputGate);
+  const sensoryActivity = activityToPercent(visualActivity * currentInputGate * activityGain);
+  const motorActivity = activityToPercent(actionActivity * currentInputGate * activityGain);
   const connectomeThreat = clamp(threatState.threat * 0.62 + motorActivity * 0.38, 0, 100);
   const imminentThreat =
     threatState.cursorDistance < 112 ||
